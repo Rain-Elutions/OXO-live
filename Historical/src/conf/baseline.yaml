@@ -1,0 +1,119 @@
+kpi1:
+  tag1: 'OXO-5FI696 Augusta'
+  tag2: 'OXO-5FIC612A Augusta'
+  tag3: 'OXO-5FIC612B Augusta'
+  tag4: 'OXO-5FIC600 Augusta'
+  tag5: 'OXO-5FIC601 Augusta'
+
+data:
+  raw_file_path: ../data/my_dataframe2.csv
+  output_selected_tag_path: ../data/selected_tags.csv
+
+test_start_time: 2022-11-22 12:00:00
+
+xgboost_regressor_config:
+  model_config:
+    n_estimators: 7200
+    max_depth: 6
+    colsample_bytree: 0.2
+    learning_rate: 0.001
+    min_child_weight: 1.5
+    reg_alpha: 0.9
+    reg_lambda: 0.6
+    subsample: 0.2
+    early_stopping_rounds: 50
+    random_state: 42
+
+  train_config:
+    test_size: 0.1
+    shuffle: True
+    random_state: 42
+
+# v2 is maximizing 5FI696, v3 is minimizing 5FI696, v4 is the standard one to keep kpi within range
+# v2 gets the best hyperparameters and best model by training on shuffled dataset
+result_generating:
+  v1:
+    model_path: ../result/v1/Sasol_XGB_model.pkl
+    visualization:
+      controllable_result_path:
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_1.html
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_2.html
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_3.html
+      optimized_target_level_path: ../result/v2/plots/LNG_level_plot.html
+    outputing:
+      output_path: ../result/v2/LNG_Optimization_output.csv
+      output_path: ../result/v2/knn_LNG_Optimization_output.csv
+      all_product_output_path: ../result/v2/All_product_result.csv
+  v2:
+    model_path: ../result/v2/Sasol_XGB_model.pkl
+    visualization:
+      controllable_result_path:
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_1.html
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_2.html
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_3.html
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_4.html
+        - ../result/v2/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_5.html
+      optimized_target_level_path: ../result/v2/plots/5FI696_level_plot.html
+    outputing:
+      output_path: ../result/v2/LNG_Optimization_output.csv
+      output_path: ../result/v2/knn_LNG_Optimization_output.csv
+      all_product_output_path: ../result/v2/All_product_result.csv
+  v3:
+    model_path: ../result/v3/Sasol_XGB_model.pkl
+    visualization:
+      controllable_result_path:
+        - ../result/v3/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_1.html
+        - ../result/v3/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_2.html
+        - ../result/v3/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_3.html
+        - ../result/v3/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_4.html
+        - ../result/v3/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_5.html
+      optimized_target_level_path: ../result/v3/plots/5FI696_level_plot.html
+      kpi_optimized_path: ../result/v3/plots/kpi_optimized.html
+    outputing:
+      output_path: ../result/v3/LNG_Optimization_output.csv
+      output_path: ../result/v3/knn_LNG_Optimization_output.csv
+      all_product_output_path: ../result/v3/All_product_result.csv
+  v4:
+    model_path: ../result/v4/Sasol_XGB_model.pkl
+    best_parameters_path: ../result/v4/best_parameters.json
+    kpi1_optimization_path: ../result/v4/kpi1_optimization.csv
+    result_df_path: ../result/v4/cv_optimized.csv
+    visualization:
+      controllable_result_path:
+        - ../result/v4/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_1.html
+        - ../result/v4/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_2.html
+        - ../result/v4/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_3.html
+        - ../result/v4/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_4.html
+        - ../result/v4/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_5.html
+      optimized_target_level_path: ../result/v4/plots/5FI696_level_plot.html
+      kpi_before_and_after_optimization_path: ../result/v4/plots/kpi1_before_and_after_optimization.html
+    
+  v5:
+    model_path: ../result/v5/Sasol_XGB_model.pkl
+    best_parameters_path: ../result/v5/best_parameters.json
+    kpi1_optimization_path: ../result/v5/kpi1_optimization.csv
+    result_df_path: ../result/v5/cv_optimized.csv
+    visualization:
+      controllable_result_path:
+        - ../result/v5/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_1.html
+        - ../result/v5/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_2.html
+        - ../result/v5/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_3.html
+        - ../result/v5/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_4.html
+        - ../result/v5/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_5.html
+      optimized_target_level_path: ../result/v5/plots/5FI696_level_plot.html
+      kpi_before_and_after_optimization_path: ../result/v5/plots/kpi1_before_and_after_optimization.html
+  
+  v6:
+    model_path: ../result/v6/Sasol_XGB_model.pkl
+    best_parameters_path: ../result/v6/best_parameters.json
+    kpi1_optimization_path: ../result/v6/kpi1_optimization.csv
+    result_df_path: ../result/v6/cv_optimized.csv
+    visualization:
+      controllable_result_path:
+        - ../result/v6/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_1.html
+        - ../result/v6/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_2.html
+        - ../result/v6/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_3.html
+        - ../result/v6/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_4.html
+        - ../result/v6/plots/Sasol 5FI696 Controllable_Result_Before & After Optimization_5.html
+      optimized_target_level_path: ../result/v6/plots/5FI696_level_plot.html
+      kpi_before_and_after_optimization_path: ../result/v6/plots/kpi1_before_and_after_optimization.html

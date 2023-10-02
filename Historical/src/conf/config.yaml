@@ -1,0 +1,78 @@
+kpi1:
+  tag1: 'OXO-5FI696 Augusta'
+  tag2: 'OXO-5FIC612A Augusta'
+  tag3: 'OXO-5FIC612B Augusta'
+  tag4: 'OXO-5FIC600 Augusta'
+  tag5: 'OXO-5FIC601 Augusta'
+
+path:
+  raw_data: ../data/my_example_data.csv # very large
+  processed_data: ../data/processed_data.csv # data after EDA
+  tags_info: ../data/SASOL_OXO_2023_Full_Tag_List.xlsx
+  all_product_result: ../data/All_product_result.csv # provided by client
+  new_historical_data: ../data/live_test/historical_data.csv
+  new_recent_data: ../data/updated_tags/new_data.csv
+  new_processed_data: ../data/live_test/processed_data.csv
+  processed_data_new_tags: ../data/updated_tags/processed_data.csv
+
+  v1:
+    selected_tags: ../result/v1/selected_tags.csv
+    cv_tags_min_max: ../result/v1/cv_tags_min_max.csv
+
+  v2:
+    ctrl_tags: ../data/Control Tags list V4.xlsx
+    feat_imp_dict:
+      round1: ../result/v2/dict/feat_importance_round1_20runs.json
+      round2: ../result/v2/dict/feat_importance_round2_20runs.json
+      round3: ../result/v2/dict/feat_importance_round3_20runs.json
+    plots: ../result/v2/plots/
+    feat_imp_csv: ../result/v2/Feature Importances for CVs Round 3.csv
+    corr_score: ../result/v2/Correlation score for Yield tags wrt LNG product.csv
+    selected_tags: ../result/v2/selected_tags.csv
+    cv_tags_min_max: ../result/v2/cv_tags_min_max.csv
+
+  v3:
+    ctrl_tags: ../data/CV Tags Process Control.xlsx
+    feat_imp_dict: ../result/v3/dict/feat_importance_round1_20runs.json
+    feat_imp_csv: ../result/v3/Feature Importances for CVs Round 1.csv
+    selected_tags: ../result/v3/selected_tags.csv
+    plots: ../result/v3/plots/
+    corr_score: ../result/v3/Correlation score for Yield tags wrt LNG product.csv
+    cv_tags_min_max: ../result/v3/cv_tags_min_max.csv
+    
+num_selected_cvs:
+  v1: 21 # 14 + 7
+  v2: 21
+  v3: 60
+num_selected_non_cvs:
+  v1: 176
+  v2: 530
+  v3: 524
+
+shuffle_or_not:
+  v1: False
+  v2:
+    shuffle:
+      live_plot: ../result/shuffle_or_not/live_shuffled_lagged.html
+    unshuffle:
+      train_plot: ../result/shuffle_or_not/train_unshuffled_lagged.html
+      val_plot: ../result/shuffle_or_not/val_unshuffled_lagged.html
+      test_plot: ../result/shuffle_or_not/test_unshuffled_lagged.html
+      live_plot: ../result/shuffle_or_not/live_unshuffled_lagged.html
+    table: ../result/shuffle_or_not/rmse_result_table.html
+
+
+
+# data:
+#   raw_data: ../data/alldata.csv # very large
+#   processed_data: ../data/my_dataframe2.csv # data after EDA
+#   tags_info: ../data/NLNG Tags, KPIs, Objects for Dashboard v1.xlsx
+# output:
+#   selected_tags: ../result/selected_tags.csv
+#   new_selected_tags: ../result/new_selected_tags.csv
+#   cv_tags_min_max: ../result/cv_tags_min_max.csv
+#   new_cv_tags_min_max: ../result/new_cvs_min_max.csv
+#   feat_imp_dict:
+#     round1: ../result/dict/feat_importance_round1_20runs.json
+#     round2: ../result/dict/feat_importance_round2_20runs.json
+#     round3: ../result/dict/feat_importance_round3_20runs.json
